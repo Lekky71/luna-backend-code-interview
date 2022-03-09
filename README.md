@@ -1,6 +1,6 @@
 # Luna-Backend-intervew
 
-Please build the backend boilerplate project for NFT metadata server using node.js/javascript.
+Please build the backend boilerplate project for NFT metadata([use opensea metadata standard](https://docs.opensea.io/docs/metadata-standards)) server using node.js/javascript.
 
 For database, plz use the PostgreSQL and Knex.js(NPM package that can intereact with sql).
 
