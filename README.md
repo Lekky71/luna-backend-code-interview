@@ -7,3 +7,5 @@ For database, plz use the PostgreSQL and Knex.js(NPM package that can intereact 
 Backend should have CRUD functions for metadata.
 
 No authentication needed.
+
+Plz make new branch and create PR to main.
