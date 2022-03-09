@@ -8,4 +8,4 @@ Backend should have CRUD functions for metadata.
 
 No authentication needed.
 
-Plz make new branch and create PR to main.
+Please fork this repo and send forked repo url once it's done.
