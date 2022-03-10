@@ -37,7 +37,7 @@ describe('Testing create metadata', () => {
       .post(metaUrl)
       .send(createRequestBody)
       .then((res: any) => {
-        console.log(res);
+        Logger.Info(res.body);
         expect(res.body).toEqual(addMetadataResponse);
       });
   });
@@ -47,7 +47,7 @@ describe('Testing create metadata', () => {
       .post(`${metaUrl}/1`)
       .send(createRequestBody)
       .then((res: any) => {
-        console.log(res);
+        Logger.Info(res.body);
         expect(res.body).toEqual(tokenExistsErrorResponse);
       });
   });
@@ -111,7 +111,7 @@ describe('Delete metadata', () => {
         .post(metaUrl)
         .send(createRequestBody)
         .then((res: any) => {
-          console.log(res);
+          Logger.Info(res.body);
         });
     }
     await request(app)

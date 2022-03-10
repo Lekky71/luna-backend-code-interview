@@ -30,6 +30,8 @@ To install dependencies, run:
 
 Create a file named `.env` in the root folder, you can copy the content of file `sample.env` 
 
+```cp sample.env .env```
+
 ### Database setup:
 You can change the DB_URL environment variable to your choice, set to local PostgreSQL server by deault.
 

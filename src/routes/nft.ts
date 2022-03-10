@@ -6,7 +6,7 @@ import {
   singleMetadataValidator,
   updateMetadataValidator
 } from '../middlewares';
-import { sanitizeAddMetadataBody } from '../middlewares/sanitizer';
+import { sanitizeAddMetadataBody } from '../middlewares';
 
 const router = express.Router();
 

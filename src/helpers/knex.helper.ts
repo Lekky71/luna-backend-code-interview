@@ -58,5 +58,5 @@ export async function deleteMetadata(body: GetItemRequest): Promise<number> {
     // @ts-ignore
     condition.token_id = body.tokenId;
   }
-  return await knex('nftMetadata').where(condition).del();
+  return knex('nftMetadata').where(condition).del();
 }
