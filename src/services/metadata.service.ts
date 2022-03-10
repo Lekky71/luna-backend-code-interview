@@ -25,6 +25,7 @@ export async function addItem(request: AddMetadataRequest): Promise<number> {
     }
   }
 
+  // Use pre-sent token or generate new id
   const saveTokenId = request.tokenId || count + 1;
   Logger.Info(`Adding new token metadata with id: ${saveTokenId} for collection ${request.collectionId}`);
 
@@ -43,7 +44,6 @@ export async function getAllItems(collectionId: string): Promise<Metadata[]> {
 }
 
 export async function getSingleItem(request: GetItemRequest): Promise<Metadata> {
-  Logger.Info(request);
   const result = await knexHelper.getSingleMetadata(request);
   if (result.length === 0) {
     throw new CustomError(HttpStatus.NOT_FOUND, 'Token metadata was not found');
@@ -52,14 +52,15 @@ export async function getSingleItem(request: GetItemRequest): Promise<Metadata> 
 }
 
 export async function updateItem(request: UpdateMetadataRequest): Promise<boolean> {
+  Logger.Info('Running update process', request);
   await getSingleItem({ collectionId: request.collectionId, tokenId: request.tokenId });
-  Logger.Info('got here');
   const response = await knexHelper.updateMetadata(request);
   Logger.Info(response);
   return true;
 }
 
 export async function deleteItem(request: GetItemRequest): Promise<number> {
+  Logger.Info('Running delete process');
   Logger.Info(request);
   const result = await knexHelper.deleteMetadata(request);
   if (result === 0) {

@@ -16,7 +16,7 @@
     "clean": "rm -rf coverage dist",
     "migrate": "knex migrate:latest",
     "unmigrate": "knex migrate:rollback",
-    "seed": "knex seed:run "
+    "seed": "knex seed:run"
   },
   "engines": {
     "node": ">=12.10.0"
