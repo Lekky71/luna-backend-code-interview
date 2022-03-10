@@ -18,7 +18,7 @@ exports.up = function (knex) {
         table.string('name', 50).notNullable();
         // attributes object is serialized to a string
         // I did consider making another table for attributes,but I don't really see the need.
-        table.text('attributes').notNullable();
+        table.json('attributes').notNullable();
         table.string('background_color', 6).nullable();
         table.text('animation_url').nullable();
         table.text('youtube_url').nullable();
