@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "2879f6c3-293f-4447-98e4-1827ee18f03c",
+		"name": "Luna-market-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Metadata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Friendly OpenSea Creature that enjoys long swims in the ocean.\",\n    \"external_url\": \"https://openseacreatures.io/3\",\n    \"image\": \"https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png\",\n    \"name\": \"Dave Starbelly\",\n    \"namer\": \"Dave Starbelly\",\n    \"background_color\": \"abc\",\n    \"attributes\": [\n        {\n            \"trait_type\": \"Base\",\n            \"value\": \"Starfish\"\n        },\n        {\n            \"trait_type\": \"Eyes\",\n            \"value\": \"Big\"\n        },\n        {\n            \"trait_type\": \"Mouth\",\n            \"value\": \"Surprised\"\n        },\n        {\n            \"trait_type\": \"Level\",\n            \"value\": 5\n        },\n        {\n            \"trait_type\": \"Stamina\",\n            \"value\": 1.4\n        },\n        {\n            \"trait_type\": \"Personality\",\n            \"value\": \"Sad\"\n        },\n        {\n            \"display_type\": \"boost_number\",\n            \"trait_type\": \"Aqua Power\",\n            \"value\": 40\n        },\n        {\n            \"display_type\": \"boost_percentage\",\n            \"trait_type\": \"Stamina Increase\",\n            \"value\": 10\n        },\n        {\n            \"display_type\": \"number\",\n            \"trait_type\": \"Generation\",\n            \"value\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/nft/luna-shoes/metadata",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"nft",
+						"luna-shoes",
+						"metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Metadata for tokenId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Friendly OpenSea Creature that enjoys long swims in the ocean.\",\n    \"external_url\": \"https://openseacreatures.io/3\",\n    \"image\": \"https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png\",\n    \"name\": \"Dave Starbelly\",\n    \"background_color\": \"abc\",\n    \"attributes\": [\n        {\n            \"trait_type\": \"Base\",\n            \"value\": \"Starfish\"\n        },\n        {\n            \"trait_type\": \"Eyes\",\n            \"value\": \"Big\"\n        },\n        {\n            \"trait_type\": \"Mouth\",\n            \"value\": \"Surprised\"\n        },\n        {\n            \"trait_type\": \"Level\",\n            \"value\": 5\n        },\n        {\n            \"trait_type\": \"Stamina\",\n            \"value\": 1.4\n        },\n        {\n            \"trait_type\": \"Personality\",\n            \"value\": \"Sad\"\n        },\n        {\n            \"display_type\": \"boost_number\",\n            \"trait_type\": \"Aqua Power\",\n            \"value\": 40\n        },\n        {\n            \"display_type\": \"boost_percentage\",\n            \"trait_type\": \"Stamina Increase\",\n            \"value\": 10\n        },\n        {\n            \"display_type\": \"number\",\n            \"trait_type\": \"Generation\",\n            \"value\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/nft/luna-shoes/metadata/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"nft",
+						"luna-shoes",
+						"metadata",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Metadata for tokenId",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"1 Friendly OpenSea Creature that enjoys long swims in the ocean.\",\n    \"external_url\": \"https://openseacreatures.io/11\",\n    \"image\": \"https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png\",\n    \"name\": \"Dave Starbelly\",\n    \"background_color\": \"#fff\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/nft/luna-shoes/metadata/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"nft",
+						"luna-shoes",
+						"metadata",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Metadata",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Friendly OpenSea Creature that enjoys long swims in the ocean.\",\n    \"external_url\": \"https://openseacreatures.io/3\",\n    \"image\": \"https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png\",\n    \"name\": \"Dave Starbelly\",\n    \"background_color\": \"abc\",\n    \"attributes\": [\n        {\n            \"trait_type\": \"Base\",\n            \"value\": \"Starfish\"\n        },\n        {\n            \"trait_type\": \"Eyes\",\n            \"value\": \"Big\"\n        },\n        {\n            \"trait_type\": \"Mouth\",\n            \"value\": \"Surprised\"\n        },\n        {\n            \"trait_type\": \"Level\",\n            \"value\": 5\n        },\n        {\n            \"trait_type\": \"Stamina\",\n            \"value\": 1.4\n        },\n        {\n            \"trait_type\": \"Personality\",\n            \"value\": \"Sad\"\n        },\n        {\n            \"display_type\": \"boost_number\",\n            \"trait_type\": \"Aqua Power\",\n            \"value\": 40\n        },\n        {\n            \"display_type\": \"boost_percentage\",\n            \"trait_type\": \"Stamina Increase\",\n            \"value\": 10\n        },\n        {\n            \"display_type\": \"number\",\n            \"trait_type\": \"Generation\",\n            \"value\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/nft/luna-shoes/metadata",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"nft",
+						"luna-shoes",
+						"metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Metadata by token id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Friendly OpenSea Creature that enjoys long swims in the ocean.\",\n    \"external_url\": \"https://openseacreatures.io/3\",\n    \"image\": \"https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png\",\n    \"name\": \"Dave Starbelly\",\n    \"background_color\": \"abc\",\n    \"attributes\": [\n        {\n            \"trait_type\": \"Base\",\n            \"value\": \"Starfish\"\n        },\n        {\n            \"trait_type\": \"Eyes\",\n            \"value\": \"Big\"\n        },\n        {\n            \"trait_type\": \"Mouth\",\n            \"value\": \"Surprised\"\n        },\n        {\n            \"trait_type\": \"Level\",\n            \"value\": 5\n        },\n        {\n            \"trait_type\": \"Stamina\",\n            \"value\": 1.4\n        },\n        {\n            \"trait_type\": \"Personality\",\n            \"value\": \"Sad\"\n        },\n        {\n            \"display_type\": \"boost_number\",\n            \"trait_type\": \"Aqua Power\",\n            \"value\": 40\n        },\n        {\n            \"display_type\": \"boost_percentage\",\n            \"trait_type\": \"Stamina Increase\",\n            \"value\": 10\n        },\n        {\n            \"display_type\": \"number\",\n            \"trait_type\": \"Generation\",\n            \"value\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/nft/luna-shoes/metadata/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"nft",
+						"luna-shoes",
+						"metadata",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Metadata by token id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Friendly OpenSea Creature that enjoys long swims in the ocean.\",\n    \"external_url\": \"https://openseacreatures.io/3\",\n    \"image\": \"https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png\",\n    \"name\": \"Dave Starbelly\",\n    \"background_color\": \"abc\",\n    \"attributes\": [\n        {\n            \"trait_type\": \"Base\",\n            \"value\": \"Starfish\"\n        },\n        {\n            \"trait_type\": \"Eyes\",\n            \"value\": \"Big\"\n        },\n        {\n            \"trait_type\": \"Mouth\",\n            \"value\": \"Surprised\"\n        },\n        {\n            \"trait_type\": \"Level\",\n            \"value\": 5\n        },\n        {\n            \"trait_type\": \"Stamina\",\n            \"value\": 1.4\n        },\n        {\n            \"trait_type\": \"Personality\",\n            \"value\": \"Sad\"\n        },\n        {\n            \"display_type\": \"boost_number\",\n            \"trait_type\": \"Aqua Power\",\n            \"value\": 40\n        },\n        {\n            \"display_type\": \"boost_percentage\",\n            \"trait_type\": \"Stamina Increase\",\n            \"value\": 10\n        },\n        {\n            \"display_type\": \"number\",\n            \"trait_type\": \"Generation\",\n            \"value\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/nft/luna-shoes/metadata/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"nft",
+						"luna-shoes",
+						"metadata",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete All Metadata",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Friendly OpenSea Creature that enjoys long swims in the ocean.\",\n    \"external_url\": \"https://openseacreatures.io/3\",\n    \"image\": \"https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png\",\n    \"name\": \"Dave Starbelly\",\n    \"background_color\": \"abc\",\n    \"attributes\": [\n        {\n            \"trait_type\": \"Base\",\n            \"value\": \"Starfish\"\n        },\n        {\n            \"trait_type\": \"Eyes\",\n            \"value\": \"Big\"\n        },\n        {\n            \"trait_type\": \"Mouth\",\n            \"value\": \"Surprised\"\n        },\n        {\n            \"trait_type\": \"Level\",\n            \"value\": 5\n        },\n        {\n            \"trait_type\": \"Stamina\",\n            \"value\": 1.4\n        },\n        {\n            \"trait_type\": \"Personality\",\n            \"value\": \"Sad\"\n        },\n        {\n            \"display_type\": \"boost_number\",\n            \"trait_type\": \"Aqua Power\",\n            \"value\": 40\n        },\n        {\n            \"display_type\": \"boost_percentage\",\n            \"trait_type\": \"Stamina Increase\",\n            \"value\": 10\n        },\n        {\n            \"display_type\": \"number\",\n            \"trait_type\": \"Generation\",\n            \"value\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/nft/luna-shoes/metadata",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"nft",
+						"luna-shoes",
+						"metadata"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
