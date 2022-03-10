@@ -45,42 +45,42 @@ export const addMetadataValidator = () => {
     body('image', 'image url provided is not a valid url')
       .optional()
       .isURL()
-      .escape(),
+      .bail(),
     body('image_data', 'image_data provided is not a valid SVG')
       .optional()
       .custom((value: string) => value.startsWith('<svg'))
-      .escape(),
+      .bail(),
     body('external_url', 'external_url is not a valid url')
       .optional()
       .isURL()
-      .escape(),
+      .bail(),
     body('description', 'description is required')
       .exists()
       .isLength({ min: 4 })
-      .escape(),
+      .bail(),
     body('name', 'name is required')
       .exists()
       .isLength({ min: 3, max: 50 })
-      .escape(),
+      .bail(),
     body('attributes')
       .exists()
       .isArray()
       .withMessage('attributes array is required')
       .custom((attributes: Attribute[]) => validateValueExists(attributes))
       .withMessage('property value is required for all attributes')
-      .escape(),
+      .bail(),
     body('background_color', 'background_color should be a valid hex color')
       .optional()
       .isHexColor()
-      .escape(),
+      .bail(),
     body('animation_url', 'animation_url is not a valid url')
       .optional()
       .isURL()
-      .escape(),
+      .bail(),
     body('youtube_url', 'youtube_url is not a valid url')
       .optional()
       .isURL()
-      .escape(),
+      .bail(),
   ]);
 };
 
@@ -109,41 +109,41 @@ export const updateMetadataValidator = () => {
     body('image', 'image url provided is not a valid url')
       .optional()
       .isURL()
-      .escape(),
+      .bail(),
     body('image_data', 'image_data provided is not a valid SVG')
       .optional()
       .custom((value: string) => value.startsWith('<svg'))
-      .escape(),
+      .bail(),
     body('external_url', 'external_url is not a valid url')
       .optional()
       .isURL()
-      .escape(),
+      .bail(),
     body('description', 'description is required')
       .optional()
       .isLength({ min: 4 })
-      .escape(),
+      .bail(),
     body('name', 'name is required')
       .optional()
       .isLength({ min: 3, max: 50 })
-      .escape(),
+      .bail(),
     body('attributes')
       .optional()
       .isArray()
       .withMessage('attributes array is required')
       .custom((attributes: Attribute[]) => validateValueExists(attributes))
       .withMessage('property value is required for all attributes')
-      .escape(),
+      .bail(),
     body('background_color', 'background_color should be a valid hex color')
       .optional()
       .isHexColor()
-      .escape(),
+      .bail(),
     body('animation_url', 'animation_url is not a valid url')
       .optional()
       .isURL()
-      .escape(),
+      .bail(),
     body('youtube_url', 'youtube_url is not a valid url')
       .optional()
       .isURL()
-      .escape(),
+      .bail(),
   ]);
 };

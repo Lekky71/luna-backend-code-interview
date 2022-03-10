@@ -5,6 +5,7 @@
   "main": "./src/bin/www/index.ts",
   "private": true,
   "scripts": {
+    "dev": "npm run migrate && ts-node ./src/bin/www/index.ts",
     "prod:start": "NODE_ENV=production node ./dist/bin/www/index.js",
     "dev:watch": "nodemon ./src/bin/www/index.ts",
     "build": "webpack",
@@ -50,7 +51,8 @@
     "helmet": "5.0.2",
     "knex": "^1.0.3",
     "log4js": "^6.4.2",
-    "method-override": "3.0.0"
+    "method-override": "3.0.0",
+    "pg": "8.7.3"
   },
   "devDependencies": {
     "@types/body-parser": "1.19.2",

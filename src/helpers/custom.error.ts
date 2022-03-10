@@ -1,8 +1,8 @@
 export class CustomError extends Error {
-  code: string;
+  code: number;
   data?: object;
 
-  constructor(code: string, message: string, data?: object) {
+  constructor(code: number, message: string, data?: object) {
     super();
 
     this.code = code;

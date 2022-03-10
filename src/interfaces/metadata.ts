@@ -4,7 +4,7 @@ export interface Metadata {
   external_url?: string;
   description: string;
   name: string;
-  attributes: string;
+  attributes: any;
   background_color?: string;
   animation_url?: string;
   youtube_url?: string;
@@ -32,4 +32,9 @@ export interface UpdateMetadataRequest {
 export interface AddMetadataRequest {
   collectionId: string;
   metadata: Metadata;
+}
+
+export interface InsertionMetadata extends Metadata {
+  collection_id: string;
+  token_id: number;
 }

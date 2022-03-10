@@ -11,13 +11,15 @@ import { HttpStatus } from '../constants/http.status';
  * @param res
  */
 export async function handleAddMetadata(req: Request, res: ExpressResponse): Promise<void> {
-  Logger.Info(req.body);
+  const { collectionId } = req.params;
   try {
-    const response = await metadataService.addItem(req.body);
+    const response = await metadataService.addItem({ collectionId, metadata: req.body });
 
     return Response.success(res, {
       message: 'Successful',
-      response
+      response: {
+        tokenId: response,
+      }
     }, HttpStatus.OK);
   } catch (err) {
     Logger.Error(err);
@@ -38,12 +40,12 @@ export async function handleGetAllMetadata(req: Request, res: ExpressResponse): 
       message: 'Successful',
       response
     }, HttpStatus.OK);
-  } catch (err) {
+  } catch (err: any) {
     Logger.Error(err);
 
     return Response.failure(res, {
-      message: 'Internal Server Error Occurred'
-    }, HttpStatus.INTERNAL_SERVER_ERROR);
+      message: err.message || 'Internal Server Error Occurred'
+    }, err.code || HttpStatus.INTERNAL_SERVER_ERROR);
   }
 }
 
@@ -57,12 +59,12 @@ export async function handleGetMetadata(req: Request, res: ExpressResponse): Pro
       message: 'Successful',
       response
     }, HttpStatus.OK);
-  } catch (err) {
+  } catch (err: any) {
     Logger.Error(err);
 
     return Response.failure(res, {
-      message: 'Internal Server Error Occurred'
-    }, HttpStatus.INTERNAL_SERVER_ERROR);
+      message: err.message || 'Internal Server Error Occurred'
+    }, err.code || HttpStatus.INTERNAL_SERVER_ERROR);
   }
 }
 
