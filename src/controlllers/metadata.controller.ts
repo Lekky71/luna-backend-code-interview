@@ -11,9 +11,10 @@ import { HttpStatus } from '../constants/http.status';
  * @param res
  */
 export async function handleAddMetadata(req: Request, res: ExpressResponse): Promise<void> {
-  const { collectionId } = req.params;
+  // tokenId in the case we want to add metadata for a deleted tokenId
+  const { collectionId, tokenId } = req.params;
   try {
-    const response = await metadataService.addItem({ collectionId, metadata: req.body });
+    const response = await metadataService.addItem({ collectionId, tokenId: Number.parseInt(tokenId), metadata: req.body });
 
     return Response.success(res, {
       message: 'Successful',
@@ -21,12 +22,12 @@ export async function handleAddMetadata(req: Request, res: ExpressResponse): Pro
         tokenId: response,
       }
     }, HttpStatus.OK);
-  } catch (err) {
+  } catch (err: any) {
     Logger.Error(err);
 
     return Response.failure(res, {
-      message: 'Internal Server Error Occurred'
-    }, HttpStatus.INTERNAL_SERVER_ERROR);
+      message: err.message || 'Internal Server Error Occurred'
+    }, err.code || HttpStatus.INTERNAL_SERVER_ERROR);
   }
 }
 
@@ -72,18 +73,20 @@ export async function handleUpdateMetadata(req: Request, res: ExpressResponse): 
   Logger.Info(req.params);
   try {
     const { collectionId, tokenId } = req.params;
-    const response = await metadataService.updateItem({ collectionId, tokenId, metadata: req.body });
+    await metadataService.updateItem({ collectionId, tokenId, metadata: req.body });
 
     return Response.success(res, {
       message: 'Successful',
-      response
+      response: {
+        tokenId: Number.parseInt(tokenId),
+      }
     }, HttpStatus.OK);
-  } catch (err) {
+  } catch (err: any) {
     Logger.Error(err);
 
     return Response.failure(res, {
-      message: 'Internal Server Error Occurred'
-    }, HttpStatus.INTERNAL_SERVER_ERROR);
+      message: err.message || 'Internal Server Error Occurred'
+    }, err.code || HttpStatus.INTERNAL_SERVER_ERROR);
   }
 }
 
@@ -95,13 +98,13 @@ export async function handleDeleteMetadata(req: Request, res: ExpressResponse): 
 
     return Response.success(res, {
       message: 'Successful',
-      response
+      response: { deleted: response }
     }, HttpStatus.OK);
-  } catch (err) {
+  } catch (err: any) {
     Logger.Error(err);
 
     return Response.failure(res, {
-      message: 'Internal Server Error Occurred'
-    }, HttpStatus.INTERNAL_SERVER_ERROR);
+      message: err.message || 'Internal Server Error Occurred'
+    }, err.code || HttpStatus.INTERNAL_SERVER_ERROR);
   }
 }

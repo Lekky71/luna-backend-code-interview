@@ -3,6 +3,7 @@ import errorHandler from 'errorhandler';
 
 import app from '../../app';
 import { Logger } from '../../helpers/Logger';
+const knex = require('../../../data/db');
 
 app.use(errorHandler());
 
@@ -21,4 +22,13 @@ app.use(errorHandler());
       process.kill(process.pid, 'SIGUSR2');
     });
   });
+
+  process.on('SIGTERM', async () => {
+    console.info('Closing DB connection');
+    await knex.destroy();
+    server.close(() => {
+      console.info('Process terminated');
+    });
+  });
+
 })();

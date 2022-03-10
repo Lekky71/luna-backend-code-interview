@@ -5,11 +5,11 @@
   "main": "./src/bin/www/index.ts",
   "private": true,
   "scripts": {
-    "dev": "npm run migrate && ts-node ./src/bin/www/index.ts",
+    "dev": "ts-node ./src/bin/www/index.ts",
     "prod:start": "NODE_ENV=production node ./dist/bin/www/index.js",
     "dev:watch": "nodemon ./src/bin/www/index.ts",
     "build": "webpack",
-    "test": "jest",
+    "test": "jest --coverage",
     "test:watch": "jest --watchAll --collectCoverage=false",
     "test:vulnerability": "npm audit",
     "lint": "eslint './src/**/*.ts' --max-warnings 0",

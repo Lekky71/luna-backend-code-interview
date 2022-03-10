@@ -31,6 +31,7 @@ export interface UpdateMetadataRequest {
 
 export interface AddMetadataRequest {
   collectionId: string;
+  tokenId?: number;
   metadata: Metadata;
 }
 
