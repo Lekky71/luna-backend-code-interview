@@ -22,3 +22,14 @@ export enum DisplayType {
   BOOST_PERCENTAGE = 'boost_percentage',
   BOOST_NUMBER = 'boost_number',
 }
+
+export interface UpdateMetadataRequest {
+  collectionId: string;
+  tokenId: string;
+  metadata: Metadata;
+}
+
+export interface AddMetadataRequest {
+  collectionId: string;
+  metadata: Metadata;
+}

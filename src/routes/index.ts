@@ -1,5 +1,5 @@
 import express from 'express';
-import {routeError} from '../handlers';
+import { routeError } from '../handlers';
 
 import nftRoutes from './nft';
 
